@@ -58,32 +58,31 @@ export class TasksController {
       if (!description) {
         return res.status(400).send({
           ok: false,
-          message: "Description não foi informado",
+          message: "Description not provided",
         });
       }
 
       if (!detail) {
         return res.status(400).send({
           ok: false,
-          message: "Detail não foi informada",
+          message: "Detail not provided",
         });
       }
 
       if (!idUser) {
         return res.status(400).send({
           ok: false,
-          message: "User (idUser) não foi informado",
+          message: "User (ID) not found",
         });
       }
 
-      // 1- verificar se o user existe
       const userRepository = new UserRepository();
       const userResult = await userRepository.getId(idUser);
 
       if (!userResult) {
         return res.status(404).send({
           ok: false,
-          message: "User não existe",
+          message: "User not found",
         });
       }
 
@@ -151,7 +150,7 @@ export class TasksController {
       if (!result) {
         return res.status(404).send({
           ok: false,
-          message: "User não encontrado!",
+          message: "User not found",
         });
       }
 
@@ -161,7 +160,7 @@ export class TasksController {
 
       return res.status(200).send({
         ok: true,
-        message: "Task atualizado com sucesso",
+        message: "Task updated sucessfuly",
         data: resultUpdate,
       });
     } catch (error: any) {
@@ -182,7 +181,7 @@ export class TasksController {
       if (!result) {
         return res.status(404).send({
           ok: false,
-          message: "Tasks não encontrada!",
+          message: "Task not found",
         });
       }
 

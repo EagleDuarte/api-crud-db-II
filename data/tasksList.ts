@@ -1,17 +1,26 @@
-import {
-  // listaTasks,
-  Tasks,
-} from "../models/tasks";
+import { Tasks } from "../models/tasks";
 import { User } from "../models/user";
 
-export const tasksList = [
-  new Tasks("teste 01", "teste 01"),
-  new Tasks("teste 02", "teste 02"),
+export const userList = [
+  new User("user1@teste.com", "1111"),
+  new User("user2@teste.com", "2222"),
+  new User("user3@teste.com", "3333"),
 ];
 
-export const userList = [
-  new User("ricardo@teste.com", "0987!", "0987!"),
-  new User("teste@teste.com", "1234@", "1234@"),
+const user1 = userList.find((user) => user.name === "user1@teste.com");
+const user2 = userList.find((user) => user.name === "user2@teste.com");
+
+if (!user1) {
+  throw new Error("Usuário não encontrado: user1@teste.com");
+}
+
+if (!user2) {
+  throw new Error("Usuário não encontrado: user2@teste.com");
+}
+
+export const tasksList = [
+  new Tasks("testing task one", "testing task one", user1),
+  new Tasks("testing task two", "testing task two", user2),
 ];
 
 /* O código acima exporta duas constantes: tasksList e userList.

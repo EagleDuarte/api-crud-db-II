@@ -14,7 +14,7 @@ export class DatabaseConnection {
 
   public static get connection() {
     if (!this._connection) {
-      throw new Error("A database não tá inicializada");
+      throw new Error("Database is working!");
     }
     return this._connection;
   }

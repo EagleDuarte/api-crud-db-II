@@ -23,9 +23,9 @@ app.use("/tasks", tasksRoutes);
 app.use("/user", userRoutes);
 
 DatabaseConnection.connect().then(() => {
-  console.log("Database foi inicializada");
+  console.log("Database is running");
   app.listen(port, () => {
-    console.log("API rodando na porta " + port);
+    console.log("API running at port --->" + port);
   });
 });
 
